@@ -19,11 +19,20 @@ class IBommaProvider : MainAPI() { // all providers must be an instance of MainA
         TvType.Movie, TvType.TvSeries
     )
 
-    //pages
-    //"#content > div > article" //Latest
-    //"#content > article:lt(6)" //web series
-    //"#content > article:gt(5):lt(6)" //foreign dub
-    //"#content > article:gt(11)" //addon
+     override val mainPage = mainPageOf(
+        "$mainUrl/category/bollywood-1080/" to "New Release Movies",
+        "$mainUrl/genre/dual-audio/page/" to "Hindi Dubbed Movies",
+        "$mainUrl/genre/bollywood/page/" to "Bollywood Movies",
+        "$mainUrl/genre/web-series/page/" to "Hindi Web Series",
+        "$mainUrl/director/netflix/page/" to "NetFlix",
+        "$mainUrl/director/amazon-prime/page/" to "Amazon Prime",
+        "$mainUrl/director/hotstar/page/" to "HotStar",
+        "$mainUrl/director/zee5/page/" to "Zee5",
+        "$mainUrl/director/mx-player/page/" to "Mx Player",
+        "$mainUrl/director/sonyliv-original/page/" to "SonyLiv",
+        "$mainUrl/director/voot-originals/page/" to "Voot",
+
+        )
 
     override suspend fun getMainPage(
         page: Int, request: MainPageRequest
