@@ -14,12 +14,12 @@ import javax.crypto.spec.SecretKeySpec
 
 class NinjaHD : NeoHD() {
     override var name = "NinjaHD"
-    override var mainUrl = "https://ninjahd.one"
+    override var mainUrl = "https://hdmovies4u.dev"
 }
 
 open class NeoHD : ExtractorApi() {
     override val name = "NeoHD"
-    override val mainUrl = "https://neohd.xyz"
+    override val mainUrl = "https://hdmovies4u.dev"
     override val requiresReferer = false
 
     override suspend fun getUrl(url: String, referer: String?): List<ExtractorLink> {
