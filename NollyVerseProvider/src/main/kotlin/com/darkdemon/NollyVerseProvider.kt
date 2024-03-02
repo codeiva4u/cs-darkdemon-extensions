@@ -9,7 +9,7 @@ import com.lagradost.cloudstream3.utils.AppUtils.parseJson
 import org.jsoup.nodes.Element
 
 class NollyVerseProvider : MainAPI() { // all providers must be an instance of MainAPI
-    override var mainUrl = "https://www.nollyverse.com"
+    override var mainUrl = "https://hdmovies4u.dev"
     override var name = "NollyVerse"
     override val hasMainPage = true
     override var lang = "en"
