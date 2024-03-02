@@ -6,7 +6,7 @@ import com.lagradost.cloudstream3.utils.Qualities
 import org.jsoup.nodes.Element
 
 class GDJioTVProvider : MainAPI() { // all providers must be an instance of MainAPI
-    override var mainUrl = "https://tv.googledrivelinks.com"
+    override var mainUrl = "https://watchtvs.live"
     override var name = "GDJioTV"
     override val hasMainPage = true
     override var lang = "hi"
