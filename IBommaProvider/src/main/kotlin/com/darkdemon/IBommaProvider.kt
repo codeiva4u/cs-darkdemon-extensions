@@ -19,33 +19,28 @@ class IBommaProvider : MainAPI() { // all providers must be an instance of MainA
         TvType.Movie, TvType.TvSeries
     )
 
-     override val mainPage = mainPageOf(
-        "$mainUrl/category/bollywood-1080/" to "New Release Movies",
-        "$mainUrl/genre/dual-audio/page/" to "Hindi Dubbed Movies",
-        "$mainUrl/genre/bollywood/page/" to "Bollywood Movies",
-        "$mainUrl/genre/web-series/page/" to "Hindi Web Series",
-        "$mainUrl/director/netflix/page/" to "NetFlix",
-        "$mainUrl/director/amazon-prime/page/" to "Amazon Prime",
-        "$mainUrl/director/hotstar/page/" to "HotStar",
-        "$mainUrl/director/zee5/page/" to "Zee5",
-        "$mainUrl/director/mx-player/page/" to "Mx Player",
-        "$mainUrl/director/sonyliv-original/page/" to "SonyLiv",
-        "$mainUrl/director/voot-originals/page/" to "Voot",
-
-        )
-
     override suspend fun getMainPage(
-        page: Int, request: MainPageRequest
+        page: Int,
+        request: MainPageRequest
     ): HomePageResponse {
         val document = app.get(mainUrl).document
         val pageSelectors = listOf(
-            Pair("Latest", "#content > div > article"),
-            Pair("Movies", "#content > article:nth-child(-n+13)"),
+            "$mainUrl/category/bollywood-1080p/page/" to "New Release Movies",
+            "$mainUrl/genre/dual-audio/page/" to "Hindi Dubbed Movies",
+            "$mainUrl/genre/bollywood/page/" to "Bollywood Movies",
+            "$mainUrl/genre/web-series/page/" to "Hindi Web Series",
+            "$mainUrl/director/netflix/page/" to "NetFlix",
+            "$mainUrl/director/amazon-prime/page/" to "Amazon Prime",
+            "$mainUrl/director/hotstar/page/" to "HotStar",
+            "$mainUrl/director/zee5/page/" to "Zee5",
+            "$mainUrl/director/mx-player/page/" to "Mx Player",
+            "$mainUrl/director/sonyliv-original/page/" to "SonyLiv",
+            "$mainUrl/director/voot-originals/page/" to "Voot"
         )
-        val pages = pageSelectors.apmap { (title, selector) ->
-            val list = document.select(selector).mapNotNull {
-                    it.toSearchResult()
-                }
+        val pages = pageSelectors.map { (url, title) ->
+            val list = app.get(url).document.select("#content article").mapNotNull {
+                it.toSearchResult()
+            }
             HomePageList(title, list)
         }
         return HomePageResponse(pages)
