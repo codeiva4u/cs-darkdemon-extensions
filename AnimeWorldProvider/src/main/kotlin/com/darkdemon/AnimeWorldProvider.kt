@@ -12,7 +12,7 @@ import kotlinx.coroutines.delay
 import org.jsoup.nodes.Element
 
 class AnimeWorldProvider : MainAPI() { // all providers must be an instance of MainAPI
-    override var mainUrl = "https://anime-world.in"
+    override var mainUrl = "https://anime-world.ce"
     override var name = "AnimeWorld"
     override val hasMainPage = true
     override var lang = "hi"
