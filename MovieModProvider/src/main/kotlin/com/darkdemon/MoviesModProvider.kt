@@ -19,7 +19,7 @@ class MoviesModProvider : MainAPI() { // all providers must be an instance of Ma
     )
 
     override val mainPage = mainPageOf(
-        "$mainUrl/latest-released/page/" to "Popular Movies",
+        "$mainUrl/category/bollywood-1080p/" to "Popular Movies",
         "$mainUrl/movies/adult-movies/page/" to "Adult Movies",
         "$mainUrl/tv-series/page/" to "Popular Series",
         "$mainUrl/k-drama/page/" to "K-Drama",
