@@ -8,7 +8,7 @@ import com.lagradost.cloudstream3.utils.*
 import org.jsoup.nodes.Element
 
 class OnlineMoviesHindiProvider : MainAPI() { // all providers must be an instance of MainAPI
-    override var mainUrl = "https://111.90.159.132"
+    override var mainUrl = "https://hdmovies4u.dev"
     override var name = "Online Movies Hindi"
     override val hasMainPage = true
     override var lang = "hi"
